@@ -31,7 +31,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
+	"os"
 	"github.com/naemakram/uniqush-push/push"
 	"github.com/naemakram/uniqush-push/util"
 )
@@ -44,6 +44,37 @@ type HTTPClient interface {
 var _ HTTPClient = &http.Client{}
 
 type PushServiceBase struct {
+
+	// open output file
+	fo, err := os.Create("/tmp/output.txt")
+	if err != nil {
+		panic(err)
+	}
+	// close fo on exit and check for its returned error
+	defer func() {
+	if err := fo.Close(); err != nil {
+			panic(err)
+	}
+	}()
+
+	// make a buffer to keep chunks that are read
+	buf := make([]byte, 1024)
+	for {
+	// read a chunk
+	n, err := fi.Read(buf)
+	if err != nil && err != io.EOF {
+		panic(err)
+	}
+	if n == 0 {
+		break
+	}
+
+	// write a chunk
+	if _, err := fo.Write(buf[:n]); err != nil {
+		panic(err)
+	}
+	}
+	
 	// There is only one Transport and one Client for connecting to gcm or fcm, shared by the set of PSPs with pushservicetype=fcm (whether or not this is using a sandbox)
 	// (Expose functionality of this client through public methods)
 	client HTTPClient
