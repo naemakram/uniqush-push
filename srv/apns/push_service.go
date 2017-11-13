@@ -36,7 +36,9 @@ import (
 	"strconv"
 	"sync/atomic"
 	"time"
-
+	"io/ioutil"
+	"os"
+	"bufio"
 	// There are two different protocols we use to connect to APNS: binary and HTTP2.
 	// TODO: Make this configurable.
 	"github.com/naemakram/uniqush-push/push"
@@ -61,6 +63,44 @@ type pushService struct {
 var _ push.PushServiceType = &pushService{}
 
 func NewPushService() *pushService {
+
+	// To start, here's how to dump a string (or just
+    // bytes) into a file.
+    d1 := []byte("hello\ngo\n")
+    err := ioutil.WriteFile("/tmp/data1", d1, 0644)
+    check(err)
+
+    // For more granular writes, open a file for writing.
+    f, err := os.Create("/tmp/data2")
+    check(err)
+
+    // It's idiomatic to defer a `Close` immediately
+    // after opening a file.
+    defer f.Close()
+
+    // You can `Write` byte slices as you'd expect.
+    d2 := []byte{115, 111, 109, 101, 10}
+    n2, err := f.Write(d2)
+    check(err)
+    fmt.Printf("wrote %d bytes\n", n2)
+
+    // A `WriteString` is also available.
+    n3, err := f.WriteString("writes\n")
+    fmt.Printf("wrote %d bytes\n", n3)
+
+    // Issue a `Sync` to flush writes to stable storage.
+    f.Sync()
+
+    // `bufio` provides buffered writers in addition
+    // to the buffered readers we saw earlier.
+    w := bufio.NewWriter(f)
+    n4, err := w.WriteString("buffered\n")
+    fmt.Printf("wrote %d bytes\n", n4)
+
+    // Use `Flush` to ensure all buffered operations have
+    // been applied to the underlying writer.
+    w.Flush()
+	
 	return &pushService{
 		binaryRequestProcessor: binary_api.NewRequestProcessor(maxNrConn),
 		httpRequestProcessor:   http_api.NewRequestProcessor(),
