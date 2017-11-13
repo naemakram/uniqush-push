@@ -23,9 +23,9 @@ import (
 	"strings"
 
 	"github.com/ifwe/goconf/conf"
-	"github.com/uniqush/log"
-	"github.com/uniqush/uniqush-push/db"
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/naemakram/log"
+	"github.com/naemakram/uniqush-push/db"
+	"github.com/naemakram/uniqush-push/push"
 )
 
 const (

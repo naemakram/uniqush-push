@@ -64,7 +64,7 @@ system's plan, you can read the [blog
 post](http://blog.uniqush.org/uniqush-after-go1.html). If you want to find out
 about the latest progress with *Uniqush*, please check out [our
  blog](http://blog.uniqush.org/). And, if you are really impatient, there's
- always our [our GitHub account](http://github.com/uniqush) which could have
+ always our [our GitHub account](http://github.com/naemakram) which could have
  brand new stuff that hasn't been released yet.
 
 ## Setting Up Redis ##
@@ -81,7 +81,7 @@ You're encouraged to contribute to the `uniqush-push` project. There are two way
 
 ### Issues ###
 
-If you encounter an issue while using `uniqush-push`, please report it at the project's [issues tracker](https://github.com/uniqush/uniqush-push/issues). Feature suggestions are also welcome.
+If you encounter an issue while using `uniqush-push`, please report it at the project's [issues tracker](https://github.com/naemakram/uniqush-push/issues). Feature suggestions are also welcome.
 
 ### Pull request ###
 

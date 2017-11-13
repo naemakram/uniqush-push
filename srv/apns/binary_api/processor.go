@@ -27,9 +27,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/uniqush/cache"
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/srv/apns/common"
+	"github.com/naemakram/cache"
+	"github.com/naemakram/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/srv/apns/common"
 )
 
 const (

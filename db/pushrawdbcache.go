@@ -20,8 +20,8 @@ package db
 import (
 	"time"
 
-	"github.com/uniqush/cache"
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/naemakram/cache"
+	"github.com/naemakram/uniqush-push/push"
 )
 
 type pushRawDatabaseCache struct {

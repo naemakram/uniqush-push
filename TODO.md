@@ -1,1 +1,1 @@
-See [issues](https://github.com/uniqush/uniqush-push/issues)
+See [issues](https://github.com/naemakram/uniqush-push/issues)

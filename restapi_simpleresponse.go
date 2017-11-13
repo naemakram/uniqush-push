@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/uniqush/log"
+	"github.com/naemakram/log"
 	"time"
 )
 

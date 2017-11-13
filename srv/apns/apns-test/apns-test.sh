@@ -1,7 +1,7 @@
 #!/bin/sh
 # Note: this test script should work with apns-simulator.
 # To install apns-simulator:
-# go get github.com/uniqush/apns-simulator
+# go get github.com/naemakram/apns-simulator
 # Then run it with the command apns-simulator
 
 PWD=`pwd`

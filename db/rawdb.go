@@ -18,8 +18,8 @@
 package db
 
 import (
-	"github.com/uniqush/log"
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/naemakram/log"
+	"github.com/naemakram/uniqush-push/push"
 )
 
 // In general, an push database stores the relationships between

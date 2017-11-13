@@ -20,7 +20,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/push"
 )
 
 type DatabaseConfig struct {

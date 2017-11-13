@@ -11,8 +11,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/srv/apns/common"
+	"github.com/naemakram/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/srv/apns/common"
 )
 
 const (

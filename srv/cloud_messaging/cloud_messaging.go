@@ -32,8 +32,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/util"
+	"github.com/naemakram/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/util"
 )
 
 // HTTPClient is a mockable interface for the parts of http.Client used by the GCM and FCM modules.

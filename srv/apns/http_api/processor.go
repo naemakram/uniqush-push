@@ -14,8 +14,8 @@ import (
 
 	"golang.org/x/net/http2"
 
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/srv/apns/common"
+	"github.com/naemakram/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/srv/apns/common"
 )
 
 // HTTPClient is a mockable interface for the parts of http.Client used by the APNS HTTP2 module.

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/uniqush/log"
+	"github.com/naemakram/log"
 )
 
 type ApiPushResponseHandler struct {

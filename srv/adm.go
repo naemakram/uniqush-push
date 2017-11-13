@@ -30,7 +30,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/push"
 )
 
 const (

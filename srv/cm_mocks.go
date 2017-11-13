@@ -5,7 +5,7 @@ package srv
 
 import (
 	"bytes"
-	cm "github.com/uniqush/uniqush-push/srv/cloud_messaging"
+	cm "github.com/naemakram/uniqush-push/srv/cloud_messaging"
 	"io"
 	"net/http"
 

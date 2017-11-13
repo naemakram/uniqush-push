@@ -18,8 +18,8 @@
 package srv
 
 import (
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/srv/apns"
+	"github.com/naemakram/uniqush-push/push"
+	"github.com/naemakram/uniqush-push/srv/apns"
 )
 
 func InstallAPNS() {
