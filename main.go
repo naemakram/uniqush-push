@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-
-	"github.com/uniqush/uniqush-push/srv"
+	"io"    
+	"github.com/naemakram/uniqush-push/srv"
 )
 
 var uniqushPushConfFlags = flag.String("config", "/etc/uniqush/uniqush-push.conf", "Config file path")
@@ -50,5 +50,35 @@ func main() {
 	err := Run(*uniqushPushConfFlags, uniqushPushVersion)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Cannot start: %v\n", err)
+	}
+	
+	// open output file
+	fo, err := os.Create("/tmp/output.txt")
+	if err != nil {
+	panic(err)
+	}
+	// close fo on exit and check for its returned error
+	defer func() {
+	if err := fo.Close(); err != nil {
+		panic(err)
+	}
+	}()
+
+	// make a buffer to keep chunks that are read
+	buf := make([]byte, 1024)
+	for {
+	// read a chunk
+	n, err := fi.Read(buf)
+	if err != nil && err != io.EOF {
+		panic(err)
+	}
+	if n == 0 {
+		break
+	}
+
+	// write a chunk
+	if _, err := fo.Write(buf[:n]); err != nil {
+		panic(err)
+	}
 	}
 }
