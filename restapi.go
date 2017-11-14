@@ -245,14 +245,15 @@ func (self *RestAPI) buildNotificationFromKV(reqId string, kv map[string]string,
 	}
 
 	if notif.IsEmpty() {
-		logger.Errorf("RequestId=%v From=%v Service=%v NrSubscribers=%v Subscribers=\"%+v\" EmptyNotification", reqId, remoteAddr, service, len(subs), subs)
+		logger.Errorf("Whizpool 1, RequestId=%v From=%v Service=%v NrSubscribers=%v Subscribers=\"%+v\" EmptyNotification", reqId, remoteAddr, service, len(subs), subs)
 		details = &ApiResponseDetails{RequestId: &reqId, From: &remoteAddr, Service: &service, Code: UNIQUSH_ERROR_EMPTY_NOTIFICATION}
 		return nil, details, errors.New("empty notification")
 	}
 	return notif, nil, nil
 }
 
-func (self *RestAPI) pushNotification(reqId string, kv map[string]string, perdp map[string][]string, logger log.Logger, remoteAddr string, handler ApiResponseHandler) {
+func (self *RestAPI) pushNotification(reqId string, kv map[string]string, perdp map[string][]string, logger log.Logger, remoteAddr string, handler ApiResponseHandler) 
+{
 	service, err := getServiceFromMap(kv, true)
 	if err != nil {
 		logger.Errorf("RequestId=%v From=%v Cannot get service name: %v; %v", reqId, remoteAddr, service, err)
@@ -277,7 +278,7 @@ func (self *RestAPI) pushNotification(reqId string, kv map[string]string, perdp 
 		return
 	}
 
-	logger.Infof("RequestId=%v From=%v Service=%v NrSubscribers=%v Subscribers=\"%+v\"", reqId, remoteAddr, service, len(subs), subs)
+	logger.Infof("Whizpool RequestId=%v From=%v Service=%v NrSubscribers=%v Subscribers=\"%+v\"", reqId, remoteAddr, service, len(subs), subs)
 
 	self.backend.Push(reqId, remoteAddr, service, subs, notif, perdp, logger, handler)
 }
